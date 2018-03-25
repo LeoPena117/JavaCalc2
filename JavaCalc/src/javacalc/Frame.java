@@ -10,7 +10,8 @@ package javacalc;
  * @author pml869
  */
 public class Frame extends javax.swing.JFrame {
-
+    double fn,sn,total;
+    String OP;
     /**
      * Creates new form Frame
      */
@@ -28,6 +29,28 @@ public class Frame extends javax.swing.JFrame {
     private void initComponents() {
 
         Title = new javax.swing.JLabel();
+        Textfield = new javax.swing.JTextField();
+        Plus = new javax.swing.JButton();
+        Minus = new javax.swing.JButton();
+        Times = new javax.swing.JButton();
+        Enter = new javax.swing.JButton();
+        jBtn1 = new javax.swing.JButton();
+        jBtn2 = new javax.swing.JButton();
+        jBtn3 = new javax.swing.JButton();
+        jBtn4 = new javax.swing.JButton();
+        jBtn5 = new javax.swing.JButton();
+        jBtn6 = new javax.swing.JButton();
+        jBtn7 = new javax.swing.JButton();
+        jBtn8 = new javax.swing.JButton();
+        jBtn9 = new javax.swing.JButton();
+        jBtn0 = new javax.swing.JButton();
+        jBtn10 = new javax.swing.JButton();
+        Divide = new javax.swing.JButton();
+        Sign = new javax.swing.JButton();
+        Clear = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -36,24 +59,373 @@ public class Frame extends javax.swing.JFrame {
         Title.setText("Quick Maths Calculator");
         Title.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        Textfield.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Textfield.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        Textfield.setToolTipText("");
+        Textfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextfieldActionPerformed(evt);
+            }
+        });
+
+        Plus.setText("+");
+        Plus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PlusActionPerformed(evt);
+            }
+        });
+
+        Minus.setText("-");
+        Minus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MinusActionPerformed(evt);
+            }
+        });
+
+        Times.setText("x");
+        Times.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TimesActionPerformed(evt);
+            }
+        });
+
+        Enter.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        Enter.setText("=");
+        Enter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EnterActionPerformed(evt);
+            }
+        });
+
+        jBtn1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jBtn1.setText("1");
+        jBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn1ActionPerformed(evt);
+            }
+        });
+
+        jBtn2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jBtn2.setText("2");
+        jBtn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn2ActionPerformed(evt);
+            }
+        });
+
+        jBtn3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jBtn3.setText("3");
+        jBtn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn3ActionPerformed(evt);
+            }
+        });
+
+        jBtn4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jBtn4.setText("4");
+        jBtn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn4ActionPerformed(evt);
+            }
+        });
+
+        jBtn5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jBtn5.setText("5");
+        jBtn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn5ActionPerformed(evt);
+            }
+        });
+
+        jBtn6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jBtn6.setText("6");
+        jBtn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn6ActionPerformed(evt);
+            }
+        });
+
+        jBtn7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jBtn7.setText("7");
+        jBtn7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn7ActionPerformed(evt);
+            }
+        });
+
+        jBtn8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jBtn8.setText("8");
+        jBtn8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn8ActionPerformed(evt);
+            }
+        });
+
+        jBtn9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jBtn9.setText("9");
+        jBtn9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn9ActionPerformed(evt);
+            }
+        });
+
+        jBtn0.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jBtn0.setText("0");
+        jBtn0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn0ActionPerformed(evt);
+            }
+        });
+
+        jBtn10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jBtn10.setText(".");
+
+        Divide.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        Divide.setText("%");
+        Divide.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DivideActionPerformed(evt);
+            }
+        });
+
+        Sign.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
+        Sign.setText("+/-");
+        Sign.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SignActionPerformed(evt);
+            }
+        });
+
+        Clear.setText("C");
+        Clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearActionPerformed(evt);
+            }
+        });
+
+        jMenu1.setText("Calculator");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Currency Converter");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(199, 199, 199)
-                .addComponent(Title)
-                .addContainerGap(204, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jBtn7, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBtn4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jBtn8, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtn9, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jBtn5, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtn6, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Clear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Times, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Divide, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE))
+                        .addContainerGap(41, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jBtn10, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(jBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jBtn0, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Sign, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(Plus, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Minus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Enter, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)))))))
+            .addComponent(Textfield)
+            .addComponent(Title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Title)
-                .addGap(0, 372, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(Textfield, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jBtn7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBtn8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBtn9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(3, 3, 3)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jBtn6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBtn5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBtn4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(2, 2, 2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Clear, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Times, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Divide, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Plus, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Minus, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jBtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(1, 1, 1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jBtn0, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Sign, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Enter, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBtn10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void TextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextfieldActionPerformed
+        double input=Double.parseDouble(Textfield.getText());
+    }//GEN-LAST:event_TextfieldActionPerformed
+
+    private void EnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnterActionPerformed
+        String ans;
+        sn=Double.parseDouble(Textfield.getText());
+        if(OP=="+"){
+            total=fn+sn;
+            ans=String.format("%.0f", total);
+            Textfield.setText(ans);
+        }
+        else if(OP=="-"){
+            total=fn-sn;
+            ans=String.format("%.0f", total);
+            Textfield.setText(ans);
+        }
+        else if(OP=="*"){
+            total=fn*sn;
+            ans=String.format("%.0f", total);
+            Textfield.setText(ans);
+        }
+        else if(OP=="%"){
+            total=fn/sn;
+            ans=String.format("%.0f", total);
+            Textfield.setText(ans);
+        }
+    }//GEN-LAST:event_EnterActionPerformed
+
+    private void PlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlusActionPerformed
+    fn=Double.parseDouble(Textfield.getText());
+    Textfield.setText("");
+    OP="+";
+    }//GEN-LAST:event_PlusActionPerformed
+
+    private void MinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MinusActionPerformed
+    fn=Double.parseDouble(Textfield.getText());
+    Textfield.setText("");
+    OP="-";
+    }//GEN-LAST:event_MinusActionPerformed
+
+    private void TimesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimesActionPerformed
+    fn=Double.parseDouble(Textfield.getText());
+    Textfield.setText("");
+    OP="*";
+    }//GEN-LAST:event_TimesActionPerformed
+
+    private void jBtn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn9ActionPerformed
+    String Enternumber=Textfield.getText()+jBtn9.getText();
+    Textfield.setText(Enternumber);    }//GEN-LAST:event_jBtn9ActionPerformed
+
+    private void jBtn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn7ActionPerformed
+    String Enternumber=Textfield.getText()+jBtn7.getText();
+    Textfield.setText(Enternumber);
+    }//GEN-LAST:event_jBtn7ActionPerformed
+
+    private void jBtn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn8ActionPerformed
+    String Enternumber=Textfield.getText()+jBtn8.getText();
+    Textfield.setText(Enternumber);
+    }//GEN-LAST:event_jBtn8ActionPerformed
+
+    private void jBtn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn4ActionPerformed
+    String Enternumber=Textfield.getText()+jBtn4.getText();
+    Textfield.setText(Enternumber);
+    }//GEN-LAST:event_jBtn4ActionPerformed
+
+    private void jBtn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn5ActionPerformed
+    String Enternumber=Textfield.getText()+jBtn5.getText();
+    Textfield.setText(Enternumber);
+    }//GEN-LAST:event_jBtn5ActionPerformed
+
+    private void jBtn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn6ActionPerformed
+    String Enternumber=Textfield.getText()+jBtn6.getText();
+    Textfield.setText(Enternumber);
+    }//GEN-LAST:event_jBtn6ActionPerformed
+
+    private void jBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn1ActionPerformed
+    String Enternumber=Textfield.getText()+jBtn1.getText();
+    Textfield.setText(Enternumber);
+    }//GEN-LAST:event_jBtn1ActionPerformed
+
+    private void jBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn2ActionPerformed
+    String Enternumber=Textfield.getText()+jBtn2.getText();
+    Textfield.setText(Enternumber);
+    }//GEN-LAST:event_jBtn2ActionPerformed
+
+    private void jBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn3ActionPerformed
+    String Enternumber=Textfield.getText()+jBtn3.getText();
+    Textfield.setText(Enternumber);
+    }//GEN-LAST:event_jBtn3ActionPerformed
+
+    private void jBtn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn0ActionPerformed
+    String Enternumber=Textfield.getText()+jBtn0.getText();
+    Textfield.setText(Enternumber);
+    }//GEN-LAST:event_jBtn0ActionPerformed
+
+    private void ClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearActionPerformed
+    Textfield.setText("");
+    }//GEN-LAST:event_ClearActionPerformed
+
+    private void DivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DivideActionPerformed
+    fn=Double.parseDouble(Textfield.getText());
+    Textfield.setText("");
+    OP="%";
+    }//GEN-LAST:event_DivideActionPerformed
+
+    private void SignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignActionPerformed
+        double ops=Double.parseDouble(String.valueOf(Textfield.getText()));
+        ops=ops*(-1);
+        Textfield.setText(String.valueOf(ops));
+        
+    }//GEN-LAST:event_SignActionPerformed
 
     /**
      * @param args the command line arguments
@@ -91,6 +463,28 @@ public class Frame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Clear;
+    private javax.swing.JButton Divide;
+    private javax.swing.JButton Enter;
+    private javax.swing.JButton Minus;
+    private javax.swing.JButton Plus;
+    private javax.swing.JButton Sign;
+    private javax.swing.JTextField Textfield;
+    private javax.swing.JButton Times;
     private javax.swing.JLabel Title;
+    private javax.swing.JButton jBtn0;
+    private javax.swing.JButton jBtn1;
+    private javax.swing.JButton jBtn10;
+    private javax.swing.JButton jBtn2;
+    private javax.swing.JButton jBtn3;
+    private javax.swing.JButton jBtn4;
+    private javax.swing.JButton jBtn5;
+    private javax.swing.JButton jBtn6;
+    private javax.swing.JButton jBtn7;
+    private javax.swing.JButton jBtn8;
+    private javax.swing.JButton jBtn9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
